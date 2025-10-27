@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControllerCC : MonoBehaviour
 {
+    private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip[] m_FootstepSounds;
+    private CharacterController m_CharacterController;
     [Header("InputBridge")]
     [SerializeField] private InputBridge input;
     
@@ -183,5 +186,18 @@ public class PlayerControllerCC : MonoBehaviour
             Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
             rb.AddForce(pushDir * 3f, ForceMode.Impulse);
         }
+    }
+
+    private void PlayFootStepAudio()
+    {
+        if (!m_CharacterController.isGrounded)
+        {
+            return;
+        }
+        int n = Random.Range(1, m_FootstepSounds.Length);
+        m_AudioSource.clip = m_FootstepSounds[n];
+        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+        m_FootstepSounds[n] = m_FootstepSounds[0];
+        m_FootstepSounds[0] = m_AudioSource.clip;
     }
 }

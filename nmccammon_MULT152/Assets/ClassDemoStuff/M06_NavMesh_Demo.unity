@@ -170,7 +170,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.11666667
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 149f194e1e2927140aa68d7f4d0d3917, type: 2}
   m_BuildHeightMesh: 0
@@ -2062,6 +2062,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 472658546}
+    - target: {fileID: 1077735656762340679, guid: 985ce32862c663e41b5943a6c30a279b, type: 3}
+      propertyPath: losMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1077735656762340679, guid: 985ce32862c663e41b5943a6c30a279b, type: 3}
       propertyPath: 'points.Array.data[0]'
       value: 

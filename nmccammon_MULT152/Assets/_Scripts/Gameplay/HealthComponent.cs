@@ -21,6 +21,7 @@ public class HealthComponent : MonoBehaviour
     public event Action<int> OnHealed;            // amount
     public event Action OnDied;
 
+
     private void Awake()
     {
         int max = config != null ? config.maxHealth : maxHealth;

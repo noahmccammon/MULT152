@@ -6,6 +6,7 @@ public class PatrolChaseAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform[] points;
     public Transform player;
+    [SerializeField] private int damageAmount = 10;
 
     [Header("Distances")]
     public float chaseDistance = 8f;
@@ -131,10 +132,10 @@ public class PatrolChaseAI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerTag))
+        var player = other.GetComponent<HealthComponent>();
+        if (player != null)
         {
-            Debug.Log($"[{name}] Triggered by Player - destroying self");
-            Destroy(other.gameObject);
+            player.Damage(damageAmount);
         }
     }
 }
